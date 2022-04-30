@@ -12,10 +12,10 @@ create table CategoriaDescuento(CategoriaDescuento varchar(30) not null,Dto floa
 create table Cliente(IdCliente int unsigned not null auto_increment,NombreCliente varchar(30),edad int,primary key (IdCliente));
 create table Pais( nombrepais varchar(15),nombreciudad varchar(15),primary key(nombreciudad,nombrepais));
 create table Pedidos(IdPedidos int unsigned not null auto_increment,IdCliente int unsigned not null, SKU varchar(5) not null,
-					 CategoriaDescuento varchar(30) not null,Idciudad varchar(15) not null,Ingresos float(4,2),Unidades int,
+		     CategoriaDescuento varchar(30) not null,Idciudad varchar(15) not null,Ingresos float(4,2),Unidades int,
                      CostoProducto float(4,2),CostoEnvio float(4,2), CostoEmpaque float(4,2),FechadePedido date,
-					 foreign key (IdCliente) references Cliente(IdCliente), 
-                     foreign key (SKU) references Product(SKU), foreign key (CategoriaDescuento) references CategoriaDescuento(CategoriaDescuento),
+		     foreign key (IdCliente) references Cliente(IdCliente), foreign key (SKU) references Product(SKU), 
+		     foreign key (CategoriaDescuento) references CategoriaDescuento(CategoriaDescuento),
                      foreign key (Idciudad) references Pais(nombreciudad),
                      primary key(IdPedidos));
 
