@@ -14,9 +14,10 @@ create table Pais( nombrepais varchar(15),nombreciudad varchar(15),primary key(n
 create table Pedidos(IdPedidos int unsigned not null auto_increment,IdCliente int unsigned not null, SKU varchar(5) not null,
 		     CategoriaDescuento varchar(30) not null,Idciudad varchar(15) not null,Ingresos float(4,2),Unidades int,
                      CostoProducto float(4,2),CostoEnvio float(4,2), CostoEmpaque float(4,2),FechadePedido date,
-		     foreign key (IdCliente) references Cliente(IdCliente), foreign key (SKU) references Product(SKU), 
-		     foreign key (CategoriaDescuento) references CategoriaDescuento(CategoriaDescuento),
-                     foreign key (Idciudad) references Pais(nombreciudad),
+		     constraint cliente_fk foreign key (IdCliente) references Cliente(IdCliente), 
+                     constraint product_fk foreign key (SKU) references Product(SKU), 
+		     constraint descuento_fk foreign key (CategoriaDescuento) references CategoriaDescuento(CategoriaDescuento),
+                     constraint pais_fk foreign key (Idciudad) references Pais(nombreciudad),
                      primary key(IdPedidos));
 
 # El Id del cliente comenzara desde el 10000
